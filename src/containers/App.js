@@ -1,7 +1,8 @@
 import logo from "../assets/statics/logo.svg"
 import '../assets/css/App.css';
-import Header from "../components/Header";
+import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import ItemListContainer from "../components/ItemListContainer";
 function App() {
   return (
     <div className="App">
@@ -11,7 +12,8 @@ function App() {
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
         crossorigin="anonymous"
       />
-      <Header></Header>
+      <NavBar></NavBar>
+      <ItemListContainer text={"Bienvenido a nuestro catologo."}></ItemListContainer>
       <header className="App-header AppBg">
       </header>
       <Footer></Footer>

@@ -1,4 +1,9 @@
-.CarritoStyle{
+.CarritoIconStyle{
     width: 2em;
+   
+}
+
+.CarritoStyle{
+    display: flex;
     margin-right: 1em;
 }
