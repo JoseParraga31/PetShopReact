@@ -1,8 +1,9 @@
-import logo from "../assets/statics/logo.svg"
 import '../assets/css/App.css';
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import ItemListContainer from "../components/ItemListContainer";
+import Carousel  from "../components/Carousel";
+import Frase from '../components/Frase';
 function App() {
   return (
     <div className="App">
@@ -13,7 +14,10 @@ function App() {
         crossorigin="anonymous"
       />
       <NavBar></NavBar>
-      <ItemListContainer text={"Bienvenido a nuestro catologo."}></ItemListContainer>
+      
+      <Carousel></Carousel>
+      
+      <Frase></Frase>
       <header className="App-header AppBg">
       </header>
       <Footer></Footer>
