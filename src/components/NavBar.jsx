@@ -5,13 +5,15 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 function NavScrollExample() {
   return (
     
     <Navbar className="HeaderNavBar" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">PetShop Parraga</Navbar.Brand>
+      
+        <Navbar.Brand href="#">PetShopParraga</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -19,9 +21,8 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Nosotros</Nav.Link>
-            <Nav.Link href="#action2">tienda</Nav.Link>
+            <Nav.Link ><Link to={"/Nosotros"}>Nosotros</Link></Nav.Link>
+            <Nav.Link><Link to={"/tienda"}>Tienda</Link></Nav.Link>
           </Nav>
           <CartWidget></CartWidget>
           <Form className="d-flex formStyle">
