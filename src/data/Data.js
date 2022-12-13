@@ -79,12 +79,14 @@ id:8}
 
     ]
 
-    export const getProducts = () =>{
-        return new Promise((resolve, reject)=>{
-          setTimeout(()=>{
-            resolve(productos)
-          },500)
-        })
+    export const getProducts = () => {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                res(productos);
+                
+            }, 2000);
+        });
       }
+  
 
     export default {productos}

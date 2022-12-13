@@ -1,15 +1,24 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import "../assets/css/itemCards.css"
 
-export default function ItemCards({nombre, descripcion, img, precio, id}) {
+function ItemCards({nombre, descripcion, img, precio, id}) {
   return (
-    <div>
-        <img src={img} className="card-img-top img_card" alt="#"></img>
-    <div className="card-body">
-    <h6  className="card-title">{nombre}</h6>
-    <p  className="font-text">{descripcion}</p>
-    <p>Precio:{precio}$</p>
-    <a  className="btn btn-primary" id="agregar${Producto.id}">Agregar al carrito</a>
-    </div>
-    </div>
-  )
+    <Card >
+      <Card.Img variant="top" src={img} />
+      <Card.Body className='carta1'>
+        <Card.Title>{nombre}</Card.Title>
+        <Card.Text>
+          {descripcion}
+        </Card.Text>
+        <Card.Text>
+            {precio}
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
+  );
 }
+
+export default ItemCards;
