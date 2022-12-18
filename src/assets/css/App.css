@@ -2,7 +2,7 @@
   text-align: center;
 }
 .AppBg{
-  background-image: url("../multimedia/images/background.png");
+  background-image: url("/public/background.png");
 }
 .App-logo {
   height: 40vmin;

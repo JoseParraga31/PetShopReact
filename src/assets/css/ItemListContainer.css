@@ -1,4 +1,7 @@
 .ItemListContainer{
-    font-size: 5em;
-    color: #212121;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
 }

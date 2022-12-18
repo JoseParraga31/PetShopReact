@@ -3,7 +3,7 @@ import {getProducts} from '../data/Data'
 import { useEffect, useState } from 'react'
 import "../assets/css/ItemListContainer.css"
 import ItemsList from './itemsList';
-
+import '../assets/css/ItemListContainer.css'
 
 export default function ItemListContainer() {
 
@@ -19,7 +19,7 @@ export default function ItemListContainer() {
   console.log(items);
 
   return (
-    <div>
+    <div className='ItemListContainer'>
       <ItemsList items={items} />
     </div>
   )

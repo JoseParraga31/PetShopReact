@@ -1,13 +1,14 @@
 import React from 'react'
-import ItemsList from '../components/itemsList'
 import ItemListContainer from './ItemListContainer'
+import NavBar from './NavBar'
+import Footer from './Footer'
 export default function Tienda() {
   return (
     <div>
       
-      <h1>Tienda</h1>
+      <NavBar></NavBar>
       <ItemListContainer></ItemListContainer>
-
+      <Footer></Footer>
 
     </div>
   )

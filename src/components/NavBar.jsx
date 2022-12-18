@@ -13,7 +13,7 @@ function NavScrollExample() {
     <Navbar className="HeaderNavBar" expand="lg">
       <Container fluid>
       
-        <Navbar.Brand href="#">PetShopParraga</Navbar.Brand>
+        <Navbar.Brand href="/"><Link to={"/"}>PetShopParraga</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
