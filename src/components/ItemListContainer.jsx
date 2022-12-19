@@ -9,7 +9,7 @@ import Loader from '../components/Loader';
 
 export default function ItemListContainer() {
 const {idCategory} = useParams();
-// const [loading, setLoading] = useState(true)
+const [loading, setLoading] = useState(true)
 console.log(idCategory);
   const [items, setItems] = useState([]);
 
@@ -19,11 +19,19 @@ console.log(idCategory);
       getProducts().then((prod) => {
         const prodFilter = prod.filter(prod => prod.categoria === idCategory);
         setItems(prodFilter)
+
+        setTimeout(() => {
+          setLoading(false)
+        }, 0 )
+
       });
     
     }else{
       getProducts().then((prod) => {
         setItems(prod)
+        setTimeout(() => {
+          setLoading(false)
+        }, 0 )
       });
     }
 
@@ -33,8 +41,8 @@ console.log(idCategory);
 
   return (
     <div className='ItemListContainer'>
-      {/* {loading ? <Loader>|</Loader> : <ItemsList items={items} />} */}
-      <ItemsList items={items} />
+      {loading ? <Loader>|</Loader> : <ItemsList items={items} />}
+     
       
     </div>
   )
