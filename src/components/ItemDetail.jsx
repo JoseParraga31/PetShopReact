@@ -1,4 +1,5 @@
 import React from 'react'
+import { ItemCount } from '../components/ItemCount'
 import '../assets/css/itemDetail.css'
 
 export default function ItemDetail({Item}) {
@@ -14,7 +15,7 @@ export default function ItemDetail({Item}) {
                 <p className='descripcion--itemDetail'>{Item.descripcion}</p>
                 <p className='Stock--ItemDetail'>Stock: {Item.stock}</p>
                 <p className='precio--ItemDetail'>Precio: {Item.precio}$</p>
-
+                <ItemCount stock={Item.stock} />
             </div>
         </section>
     </div>

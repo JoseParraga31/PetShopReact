@@ -22,7 +22,7 @@ console.log(idCategory);
 
         setTimeout(() => {
           setLoading(false)
-        }, 0 )
+        }, 2000 )
 
       });
     
@@ -31,7 +31,7 @@ console.log(idCategory);
         setItems(prod)
         setTimeout(() => {
           setLoading(false)
-        }, 0 )
+        }, 2000 )
       });
     }
 
