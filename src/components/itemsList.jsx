@@ -8,7 +8,7 @@ export default function ItemsList({ items }) {
     
     <div className='ContainerProductos container'>
 
-      {items.map(i => <ItemCards key={i.id} {...i} />)}
+      {items.map(i => <ItemCards key={i.id} {...i} items={items} />)}
     </div>
 
    

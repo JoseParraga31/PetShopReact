@@ -1,0 +1,16 @@
+.Titulo--itemDetail{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.img--itemDetail{
+    padding: 1em;
+    background-color: #fdcae1;
+    border: 2px solid #212121;
+    border-radius: 2em;
+}
+
+.precio--ItemDetail{
+    margin-bottom: 5em;
+    color: #77dd77;
+}

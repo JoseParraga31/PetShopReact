@@ -21,8 +21,9 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link ><Link to={"/Nosotros"}>Nosotros</Link></Nav.Link>
-            <Nav.Link><Link to={"/tienda"}>Tienda</Link></Nav.Link>
+            <Nav.Link ><Link to={"/Category/Higiene"}>Higiene</Link></Nav.Link>
+            <Nav.Link><Link to={"/Category/Juguetes"}>Juguetes</Link></Nav.Link>
+            <Nav.Link><Link to={"/Category/Alfombras"}>Alfombras</Link></Nav.Link>
           </Nav>
           <CartWidget></CartWidget>
           <Form className="d-flex formStyle">

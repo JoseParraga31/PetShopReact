@@ -2,11 +2,13 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "../assets/css/itemCards.css"
+import { Link } from 'react-router-dom';
 
-function ItemCards({nombre, descripcion, img, precio, id}) {
+function ItemCards({nombre, descripcion, img, precio, id,}) {
+  
   return (
-    <div className='col-3' >
-      <Card style={{ width: '12rem',
+    <div className='col-3'>
+      <Card style={{ width: '14rem',
       backgroundColor: '#ff6961',
       borderRadius: '0.5em',
       }}>
@@ -19,7 +21,9 @@ function ItemCards({nombre, descripcion, img, precio, id}) {
           <Card.Text>
           Precio: {precio}$
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Link to={`/item/${id}`}>
+          <Button variant="primary">ver Mas</Button>
+          </Link>
         </Card.Body>
       </Card>
     </div>
