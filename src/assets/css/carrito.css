@@ -1,0 +1,9 @@
+.tituloCarrito{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.CarritoContainer{
+    margin-top: 1em;
+}

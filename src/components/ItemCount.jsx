@@ -34,7 +34,7 @@ export const ItemCount = ({ stock }) => {
 					+
 				</button>
 			</div>
-			<button className='itemCount--buttonCart'>Add to Cart</button>
+			
 			{errorStock && (
 				<div className='itemCount--error'>
 					Se alcanzo el máximo disponible

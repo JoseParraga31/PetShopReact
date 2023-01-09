@@ -18,10 +18,10 @@ useEffect(() => {
   getProducts().then((prods) => {
     const FindProd = prods.find(prod => prod.id === parseInt(id))
     setItem(FindProd)
+    
     setTimeout(() => {
       setLoading(false)
     }, 2000 )
-    console.log(FindProd);
     
     return()=>setItem({});
   });

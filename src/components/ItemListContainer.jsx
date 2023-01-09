@@ -10,7 +10,6 @@ import Loader from '../components/Loader';
 export default function ItemListContainer() {
 const {idCategory} = useParams();
 const [loading, setLoading] = useState(true)
-console.log(idCategory);
   const [items, setItems] = useState([]);
 
 
@@ -22,7 +21,7 @@ console.log(idCategory);
 
         setTimeout(() => {
           setLoading(false)
-        }, 2000 )
+        }, 2000)
 
       });
     

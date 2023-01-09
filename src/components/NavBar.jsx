@@ -7,7 +7,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
+
 function NavScrollExample() {
+
   return (
     
     <Navbar className="HeaderNavBar" expand="lg">
@@ -25,7 +27,9 @@ function NavScrollExample() {
             <Nav.Link><Link to={"/Category/Juguetes"}>Juguetes</Link></Nav.Link>
             <Nav.Link><Link to={"/Category/Alfombras"}>Alfombras</Link></Nav.Link>
           </Nav>
+          <Link to={"/Carrito"}>
           <CartWidget></CartWidget>
+          </Link>
           <Form className="d-flex formStyle">
             <Form.Control
               type="search"
