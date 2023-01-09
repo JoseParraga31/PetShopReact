@@ -45,8 +45,11 @@ export const CartContextProvider = ({children}) => {
     setCart([])
   }
   const deleteProductById = (id) => {
-    const newCart = cart.filter(item => item.id !== id)
+    console.log(typeof(cart[0].id))
+    const newCart = cart.filter(item => item.id != id)
     setCart(newCart)
+
+   
   }
 
 

@@ -11,6 +11,7 @@ function CartCard ({nombre, descripcion, img, precio, id, cantidad}) {
     const { deleteProductById } = useContext(CartContext)
      
   const handleDeleteProduct = (id) => {
+    
     deleteProductById(id)
   };
   const precioTotal = cantidad * precio
