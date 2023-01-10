@@ -8,11 +8,14 @@ import { Link } from 'react-router-dom';
 export default function ItemDetail({Item}) {
 
   const [finalizarCompra, setfinalizarCompra] = useState(false)
+  
+  const [cantidad, setCantidad] = useState(0)
 
-  const { addToCard, cart } = useContext(CartContext)
+  const { addToCar, cart } = useContext(CartContext)
  
-  const HandleAddToCart = () =>{
-    addToCard(Item)
+  const HandleAddToCart = (cantidad) =>{
+    addToCar(Item,cantidad)
+    setCantidad(cantidad)
     setfinalizarCompra(!finalizarCompra)
   }
   console.log(cart);
@@ -28,13 +31,13 @@ export default function ItemDetail({Item}) {
                 <p className='descripcion--itemDetail'>{Item.descripcion}</p>
                 <p className='Stock--ItemDetail'>Stock: {Item.stock}</p>
                 <p className='precio--ItemDetail'>Precio: {Item.precio}$</p>
-                <ItemCount stock={Item.stock} />
-
-                  {!finalizarCompra ? 
-                  <button className='itemCount--buttonCart' onClick={ HandleAddToCart }>Add to Cart</button>
-                  :  
-                  <Link to="/Carrito"> <button className='itemCount--buttonCart'>Finalizar Compra</button></Link>
-                  }
+                
+                {
+            cantidad > 0 ?
+              <Link to="/Carrito"> <button className='itemCount--buttonCart'>Finalizar Compra</button></Link>
+              :
+              <ItemCount stock={Item.stock} HandleAddToCart={HandleAddToCart} />
+          }            
             </div>
         </section>
     </div>

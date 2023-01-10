@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../assets/css/itemCount.css";
 
 
-export const ItemCount = ({ stock }) => {
+export const ItemCount = ({ stock, HandleAddToCart }) => {
 
 	const [initial, setInitial] = useState(1);
 
@@ -34,7 +34,7 @@ export const ItemCount = ({ stock }) => {
 					+
 				</button>
 			</div>
-			
+			<button className='itemCount--buttonCart' onClick={() => HandleAddToCart(initial)}>Agregar al Carrito</button>
 			{errorStock && (
 				<div className='itemCount--error'>
 					Se alcanzo el máximo disponible

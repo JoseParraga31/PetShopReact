@@ -1,7 +1,7 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useContext } from "react"
+import { useContext} from "react"
 import { CartContext } from "../context/CartContex";
 
 
@@ -9,11 +9,7 @@ import { CartContext } from "../context/CartContex";
 function CartCard ({nombre, descripcion, img, precio, id, cantidad}) {
 
     const { deleteProductById } = useContext(CartContext)
-     
-  const handleDeleteProduct = (id) => {
-    
-    deleteProductById(id)
-  };
+  
   const precioTotal = cantidad * precio
   return (
     <div className="col-3">
@@ -30,7 +26,7 @@ function CartCard ({nombre, descripcion, img, precio, id, cantidad}) {
           <Card.Text>Precio unidad: {precio}$</Card.Text>
           <Card.Text>Precio Total: {precioTotal}$</Card.Text>
           <Card.Text>cantidad: {cantidad} uni</Card.Text>
-          <Button onClick={()=>handleDeleteProduct(id)}>Eliminar del carrito</Button>
+          <Button onClick={() => deleteProductById(id)}>Eliminar del carrito</Button>
         </Card.Body>
       </Card>
     </div>

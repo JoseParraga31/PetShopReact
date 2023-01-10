@@ -6,33 +6,30 @@ export const CartContextProvider = ({children}) => {
   
   const [cart, setCart] = useState([])
 
-  const addToCard = (product) =>{
-    if(cart.length === 0){
-      setCart([{
-        ...product,
-      }])
-    } else{
-      const findedProduct = cart.find(item => item.id === parseInt(product.id))
-      if(!findedProduct){
-        setCart([
-          ...cart,
-          {
-            ...product
-          }
-        ])
-      } else{
-        const filteredProduct = cart.filter(item => item.id !== parseInt(product.id) )
-        
-        setCart([
-          ...filteredProduct,
-          {
-            ...findedProduct,
-            cantidad: findedProduct.cantidad +1
-          }
-        ])
-      }
+  const addToCar = (productToAdd, cantidad) => {
+
+    const newObj = {
+      ...productToAdd,
+      cantidad
     }
+    console.log('====================================');
+    console.log( newObj);
+    console.log('====================================');
+    const islnCart = cart.some((prod) => prod.id === productToAdd)
+    console.log(islnCart);
+    if(islnCart){
+      cart.map(el=> {
+        if(el.id === newObj.id)  {
+          el.cantidad += newObj.cantidad
+          return(el)
+        }else{
+          setCart([...cart , newObj])
+        }
+    })
+
   }
+
+
   const TortalProductosCarrito = () =>{
     return(cart.reduce((acc,product) => acc + product.cantidad, 0))
     
@@ -45,23 +42,21 @@ export const CartContextProvider = ({children}) => {
     setCart([])
   }
   const deleteProductById = (id) => {
-   
     const newCart = cart.filter(item => item.id != id)
-    setCart(newCart)
-
-   
+    setCart([...newCart]);
   }
+
 
 
 
   return(
     <CartContext.Provider value={{
-      cart,
-      addToCard, 
+      cart, 
       TortalProductosCarrito,
       TortalPrecioCarrito,
       emptyCart,
-      deleteProductById 
+      deleteProductById,
+      addToCar
 
       
     }}>
@@ -69,4 +64,4 @@ export const CartContextProvider = ({children}) => {
     </CartContext.Provider>
 
   )
-}
+}}
