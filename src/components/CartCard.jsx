@@ -30,7 +30,7 @@ function CartCard ({nombre, descripcion, img, precio, id, cantidad}) {
           <Card.Text>Precio unidad: {precio}$</Card.Text>
           <Card.Text>Precio Total: {precioTotal}$</Card.Text>
           <Card.Text>cantidad: {cantidad} uni</Card.Text>
-          <Button onClick={handleDeleteProduct(id)}>Eliminar del carrito</Button>
+          <Button onClick={()=>handleDeleteProduct(id)}>Eliminar del carrito</Button>
         </Card.Body>
       </Card>
     </div>
