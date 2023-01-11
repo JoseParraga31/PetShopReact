@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useEffect, useState } from 'react';
 import "../assets/css/ItemListContainer.css";
 import ItemsList from './itemsList';
@@ -17,38 +16,54 @@ const [loading, setLoading] = useState(true)
   const getItems = async () =>{
 
     const db = getFirestore()
-    const collectionRef = collection( db, "items", )
+    const collectionRef = collection( db, "item", )
     const snapShot = await getDocs( collectionRef )
-    console.log( snapShot.docs.map( d => ({id: d.id, ...d.data()})))
+    const itemsAux = snapShot.docs.map( d => ({id: d.id, ...d.data()}))
+    setItems(itemsAux)
 
 }
-console.log('====================================');
-console.log(items);
-console.log('====================================');
-  useEffect(() => {
-    getItems()
-    if (idCategory) {
-      getItems((prod) => {
-        const prodFilter = prod.filter(prod => prod.categoria === idCategory);
-        setItems(prodFilter)
+const getItemsCategory = async (id) =>{
 
-        setTimeout(() => {
-          setLoading(false)
-        }, 2000)
+  const db = getFirestore()
+  const collectionRef = collection( db, "item", )
+  const snapShot = await getDocs( collectionRef )
+  const itemsAux = snapShot.docs.map( d => ({id: d.id, ...d.data()}))
+  setItems(itemsAux.find(p=>p.id === id))
 
-      });
+}
+useEffect( ()=>{
+  if(idCategory){
+  getItemsCategory(idCategory)
+  }else{
+  getItems()
+  }
+  setLoading(true)
+  },[idCategory])
+  
+  // useEffect(() => {
     
-    }else{
-      getItems((prod) => {
-        setItems(prod)
-        setTimeout(() => {
-          setLoading(false)
-        }, 2000 )
-      });
-    }
+  //   // if (idCategory) {
+  //   //   getItems((prod) => {
+  //   //     const prodFilter = prod.filter(prod => prod.categoria === idCategory);
+  //   //     setItems(prodFilter)
 
-    return()=>setItems([]);
-  },[idCategory]);
+  //   //     setTimeout(() => {
+  //   //       setLoading(false)
+  //   //     }, 2000)
+
+  //   //   });
+    
+  //   // }else{
+  //   //   getItems((prod) => {
+  //   //     setItems(prod)
+  //   //     setTimeout(() => {
+  //   //       setLoading(false)
+  //   //     }, 2000 )
+  //   //   });
+  //   // }
+
+  //   return()=>setItems([]);
+  // },[idCategory]);
   
 
   return (
