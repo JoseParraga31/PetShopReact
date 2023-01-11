@@ -8,6 +8,7 @@ import "../assets/css/carrito.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
+
 export default function Carrito() {
   const { cart, TortalPrecioCarrito, emptyCart, deleteProductById } =
     useContext(CartContext);
@@ -46,6 +47,7 @@ export default function Carrito() {
         <Button> Finalizar Compra</Button>
         <Button onClick={() => vaciarCarrito()}>Vacias Carrito</Button>
       </div>
+     
       <Footer></Footer>
     </div>
   );

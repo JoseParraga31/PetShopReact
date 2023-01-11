@@ -6,6 +6,7 @@ import Home from '../components/Home';
 import ItemDetailContainer from '../components/ItemDetailContainer';
 
 
+
 function App() {
   return (
     
@@ -22,10 +23,10 @@ function App() {
             <Route path='/' element={<Home/>}></Route>
             <Route path='/Carrito' element={<Carrito/>}></Route>
             <Route path='/Category/:idCategory' element={<Home></Home>}></Route>
-            <Route path='/item/:id' element={<ItemDetailContainer></ItemDetailContainer>}></Route>  
-                    
+            <Route path='/item/:id' element={<ItemDetailContainer></ItemDetailContainer>}></Route>                    
           </Routes>
         </BrowserRouter>
+        
       </CartContextProvider>
       
     </div>

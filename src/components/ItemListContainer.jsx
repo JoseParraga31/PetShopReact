@@ -1,11 +1,12 @@
 import React from 'react';
-import {getProducts} from '../data/Data';
+
 import { useEffect, useState } from 'react';
 import "../assets/css/ItemListContainer.css";
 import ItemsList from './itemsList';
 import '../assets/css/ItemListContainer.css';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
+import { getDocs, getFirestore, collection} from "firebase/firestore"
 
 export default function ItemListContainer() {
 const {idCategory} = useParams();
@@ -13,9 +14,21 @@ const [loading, setLoading] = useState(true)
   const [items, setItems] = useState([]);
 
 
+  const getItems = async () =>{
+
+    const db = getFirestore()
+    const collectionRef = collection( db, "items", )
+    const snapShot = await getDocs( collectionRef )
+    console.log( snapShot.docs.map( d => ({id: d.id, ...d.data()})))
+
+}
+console.log('====================================');
+console.log(items);
+console.log('====================================');
   useEffect(() => {
+    getItems()
     if (idCategory) {
-      getProducts().then((prod) => {
+      getItems((prod) => {
         const prodFilter = prod.filter(prod => prod.categoria === idCategory);
         setItems(prodFilter)
 
@@ -26,7 +39,7 @@ const [loading, setLoading] = useState(true)
       });
     
     }else{
-      getProducts().then((prod) => {
+      getItems((prod) => {
         setItems(prod)
         setTimeout(() => {
           setLoading(false)

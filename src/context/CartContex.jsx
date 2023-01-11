@@ -6,28 +6,33 @@ export const CartContextProvider = ({children}) => {
   
   const [cart, setCart] = useState([])
 
-  const addToCar = (productToAdd, cantidad) => {
-
-    const newObj = {
-      ...productToAdd,
-      cantidad
-    }
-    console.log('====================================');
-    console.log( newObj);
-    console.log('====================================');
-    const islnCart = cart.some((prod) => prod.id === productToAdd)
-    console.log(islnCart);
-    if(islnCart){
-      cart.map(el=> {
-        if(el.id === newObj.id)  {
-          el.cantidad += newObj.cantidad
-          return(el)
-        }else{
+  const AddToCar = (productToAdd, cantidad) => {
+    // creamos un nuevo objeto con los datos que recibimos por parámetros. Haciendo spread del producto.
+      const newObj = {
+        ...productToAdd,
+        cantidad
+      }
+    // hacer una condicional, si el nuevo objeto está en el carrito
+      if(isInCart(newObj.id)){
+    // vamos a hacer un map y sumar las cantidades, así no duplicamos
+          cart.map(el => {
+            if(el.id === newObj.id)  {
+              el.cantidad+= newObj.cantidad
+            }
+    //retornamos 
+            return(el)
+            })
+        }
+    // si es un producto que no está en el carrito, lo va a agregar. 
+    else {
           setCart([...cart , newObj])
         }
-    })
+    }
+    const isInCart = (id) => {
+      return cart.some(el => el.id === id)
+    }
 
-  }
+
 
 
   const TortalProductosCarrito = () =>{
@@ -42,7 +47,7 @@ export const CartContextProvider = ({children}) => {
     setCart([])
   }
   const deleteProductById = (id) => {
-    const newCart = cart.filter(item => item.id != id)
+    const newCart = cart.filter(item => item.id !== id)
     setCart([...newCart]);
   }
 
@@ -56,12 +61,10 @@ export const CartContextProvider = ({children}) => {
       TortalPrecioCarrito,
       emptyCart,
       deleteProductById,
-      addToCar
-
-      
+      AddToCar,  
     }}>
       {children}
     </CartContext.Provider>
 
   )
-}}
+}

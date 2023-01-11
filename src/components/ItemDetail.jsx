@@ -11,10 +11,10 @@ export default function ItemDetail({Item}) {
   
   const [cantidad, setCantidad] = useState(0)
 
-  const { addToCar, cart } = useContext(CartContext)
+  const { AddToCar, cart } = useContext(CartContext)
  
   const HandleAddToCart = (cantidad) =>{
-    addToCar(Item,cantidad)
+    AddToCar(Item,cantidad)
     setCantidad(cantidad)
     setfinalizarCompra(!finalizarCompra)
   }
