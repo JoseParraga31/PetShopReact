@@ -15,7 +15,7 @@ function NavScrollExample() {
     <Navbar className="HeaderNavBar" expand="lg">
       <Container fluid>
       
-        <Navbar.Brand href="/"><Link to={"/"}>PetShopParraga</Link></Navbar.Brand>
+        <Navbar.Brand href="/"><Link className="links" to={"/"}>PetShopParraga</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -23,9 +23,9 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link ><Link to={"/Category/Higiene"}>Higiene</Link></Nav.Link>
-            <Nav.Link><Link to={"/Category/Juguetes"}>Juguetes</Link></Nav.Link>
-            <Nav.Link><Link to={"/Category/Alfombras"}>Alfombras</Link></Nav.Link>
+            <Nav.Link ><Link className="links" to={"/Category/Higiene"}>Higiene</Link></Nav.Link>
+            <Nav.Link><Link className="links" to={"/Category/Juguetes"}>Juguetes</Link></Nav.Link>
+            <Nav.Link><Link className="links" to={"/Category/Alfombras"}>Alfombras</Link></Nav.Link>
           </Nav>
           <Link to={"/Carrito"}>
           <CartWidget></CartWidget>

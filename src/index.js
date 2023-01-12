@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC_Pw7iqyFgp151bI2pJPHn-7OoFGcIOPo",
-  authDomain: "petshopparragacoder.firebaseapp.com",
-  projectId: "petshopparragacoder",
-  storageBucket: "petshopparragacoder.appspot.com",
-  messagingSenderId: "65231874787",
-  appId: "1:65231874787:web:4ccd234bc79af57341b3d6"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 const app = initializeApp(firebaseConfig);
 

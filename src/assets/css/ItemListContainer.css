@@ -6,3 +6,8 @@
     margin-bottom: 3em;
     width: 100%;
 }
+
+.links{
+    text-decoration:none;
+    color: #212121;
+}

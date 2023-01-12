@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import "../assets/css/itemCards.css"
+
 import { Link } from 'react-router-dom';
 
 function ItemCards({nombre, descripcion, img, precio, id,}) {

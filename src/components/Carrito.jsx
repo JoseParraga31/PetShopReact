@@ -7,7 +7,7 @@ import CartCard from "./CartCard";
 import "../assets/css/carrito.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 export default function Carrito() {
   const { cart, TortalPrecioCarrito, emptyCart, deleteProductById } =
@@ -19,14 +19,34 @@ export default function Carrito() {
     SetVistaCarrito([], emptyCart());
   };
 
+  const TotalAPagar = TortalPrecioCarrito()
+  const sendOrder = () => {
+    const user = {nombre: "jose", tel: 1123445678, mail: "jose@gmail.com"}
+    const order ={
+      buyer: user,
+      items: cart,
+      total: TotalAPagar,
+
+    }
+    seveOrder(order)
+    console.log(order);
+  }
+  const seveOrder = async ( order ) => {
+    const db = getFirestore()
+    const orderCollection = collection(db, "orders")
+    const { id } = await addDoc(orderCollection , order)
+    console.log("nueva order:", id);
+ 
+  }
+  
   return (
     <div>
       <NavBar></NavBar>
       <h1 className="row tituloCarrito"> Tus Productos </h1>
       <div className="container CarritoContainer">
         {cart.length === 0 ? (
-          <Link to={"/"}>
-            <h1>Ir a Comprar</h1>
+          <Link className="links"  to={"/"}>
+           <button className="btncomprar"><p>Ir a Comprar</p></button> 
           </Link>
         ) : (
           vistaCarrito.map((prod) => {
@@ -40,11 +60,12 @@ export default function Carrito() {
           })
         )}
       </div>
+      
       <div className="row barraBotonera d-flex">
         <div className="PrecioFinal">
           Precio Final: <span>{TortalPrecioCarrito()}$</span>
         </div>
-        <Button> Finalizar Compra</Button>
+        <Button onClick={() => sendOrder()}> Finalizar Compra</Button>
         <Button onClick={() => vaciarCarrito()}>Vacias Carrito</Button>
       </div>
      

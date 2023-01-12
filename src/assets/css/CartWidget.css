@@ -7,3 +7,8 @@
     display: flex;
     margin-right: 1em;
 }
+
+.links{
+    text-decoration:none;
+    color: #212121;
+}

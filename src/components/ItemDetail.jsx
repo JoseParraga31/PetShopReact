@@ -18,7 +18,7 @@ export default function ItemDetail({Item}) {
     setCantidad(cantidad)
     setfinalizarCompra(!finalizarCompra)
   }
-  console.log(cart);
+ 
   return (
     <div>
         <h3 className='Titulo--itemDetail'>{Item.nombre}</h3>

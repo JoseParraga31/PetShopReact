@@ -11,8 +11,8 @@ function CartWidget() {
 
   return (
     <div>
-        <div className="CarritoStyle">
-            <Link to={'Carrito'}><img src={carrito} alt="carrito de compras" className='CarritoIconStyle'/></Link>
+        <div className="CarritoStyle links">
+            <Link className="links" to={'Carrito'}><img src={carrito} alt="carrito de compras" className='CarritoIconStyle links'/></Link>
             <span>{TortalProductosCarrito()}</span>
             
         </div>
