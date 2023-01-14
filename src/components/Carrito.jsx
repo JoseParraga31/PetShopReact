@@ -5,7 +5,6 @@ import { CartContext } from "../context/CartContex";
 import { useContext, useState } from "react";
 import CartCard from "./CartCard";
 import "../assets/css/carrito.css";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
@@ -40,7 +39,7 @@ export default function Carrito() {
   }
   
   return (
-    <div>
+    <div >
       <NavBar></NavBar>
       <h1 className="row tituloCarrito"> Tus Productos </h1>
       <div className="container CarritoContainer">
@@ -61,12 +60,18 @@ export default function Carrito() {
         )}
       </div>
       
-      <div className="row barraBotonera d-flex">
-        <div className="PrecioFinal">
+      <div className="row barraBotonera col-md-12">
+        <div className="PrecioFinal col-md-4">
           Precio Final: <span>{TortalPrecioCarrito()}$</span>
+        </div> 
+        <div className="col-md-4" >
+          <button className="btnFinalizarCompra" onClick={() => sendOrder()}> Finalizar Compra</button>
+
         </div>
-        <Button onClick={() => sendOrder()}> Finalizar Compra</Button>
-        <Button onClick={() => vaciarCarrito()}>Vacias Carrito</Button>
+        <div  className="col-md-4" >
+
+          <button  className="btnVaciarCarrito" onClick={() => vaciarCarrito()}>Vacias Carrito</button>
+        </div>
       </div>
      
       <Footer></Footer>

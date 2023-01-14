@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-around;
     margin-top: 1em;
+    margin-bottom: 2em;
 }
 
 .links{
@@ -17,12 +18,41 @@
 
 .btncomprar{
     width: 8em;
-    
     background-color: #ff6961;
- 
     border-radius: 2em;
     border-radius:  2px solid #212121;;
     font-size: 1.5em;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    
+}
+.barraBotonera{
+margin-top: 5em;
+    border-radius: 2em;
+    border-radius:  2px solid #212121;;
+    padding:0.7em;
+    background-color:#77dd77 ;
+    opacity: 0.8;
+
+}
+
+
+.btnFinalizarCompra{
+    width: 12em;
+    background-color: #fdfd96;
+    border-radius: 2em;
+    border-radius:  2px solid #212121;;
+   
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.btnVaciarCarrito{
+    width: 8em;
+    background-color:  #84b6f4;
+    border-radius: 2em;
+    border-radius:  2px solid #212121;;
+    
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
